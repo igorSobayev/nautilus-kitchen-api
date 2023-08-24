@@ -18,6 +18,11 @@ const User = new mongoose.Schema({
     type: mongoose.Types.ObjectId,
     ref: 'User',
   } 
+}, {
+  timestamps: {
+    createdAt: 'created',
+    updatedAt: 'updated',
+  },
 })
 
 export default mongoose.model('User', User)

@@ -11,7 +11,7 @@ const Recipe = new mongoose.Schema({
   },
 
   isCombination: Boolean,
-  combination: [
+  combinations: [
     {
       _id: mongoose.Types.ObjectId,
       rating: Number,
@@ -33,6 +33,11 @@ const Recipe = new mongoose.Schema({
   deletedBy:  {
     type: mongoose.Types.ObjectId,
     ref: 'User',
+  },
+}, {
+  timestamps: {
+    createdAt: 'created',
+    updatedAt: 'updated',
   },
 })
 
