@@ -11,6 +11,7 @@ const Recipe = new mongoose.Schema({
   },
 
   isCombination: Boolean,
+  published: Boolean,
   combinations: [
     {
       _id: mongoose.Types.ObjectId,

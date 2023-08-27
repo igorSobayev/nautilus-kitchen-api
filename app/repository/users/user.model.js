@@ -12,6 +12,8 @@ const User = new mongoose.Schema({
   credits: Number,
   lastCreditsDate: Date,
 
+  conditionsCheck: Boolean,
+
   deleted: Boolean,
   deletedDate: Date,
   deletedBy: {
