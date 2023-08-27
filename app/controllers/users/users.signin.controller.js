@@ -33,6 +33,7 @@ export default async function signin (req, res) {
         username: user.username,
         email: user.email,
         role: user.role,
+        jwt_token: token
       })
     } catch (err) {
       res.status(500).send({ message: err.message })
