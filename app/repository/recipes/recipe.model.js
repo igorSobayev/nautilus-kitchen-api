@@ -5,6 +5,8 @@ const Recipe = new mongoose.Schema({
   description: String,
   notes: String,
   rating: Number,
+  avgTime: Number,
+  difficulty: String,
   author: {
     type: mongoose.Types.ObjectId,
     ref: 'User'
