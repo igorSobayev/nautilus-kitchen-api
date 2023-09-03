@@ -6,6 +6,6 @@ export default async function (app) {
     })
 
     app.use('/api/auth', (await import("./auth.routes.js")).default)
-    app.use('/api/test', (await import("./user.routes.js")).default)
+    app.use('/api/user', (await import("./user.routes.js")).default)
     app.use('/api/recipes', (await import("./recipe.routes.js")).default)
 }

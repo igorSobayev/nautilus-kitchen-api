@@ -6,9 +6,9 @@ import adminBoard from '../controllers/users/users.adminBoard.controller.js'
 import express from 'express'
 const router = express.Router()
 
-router.get('/all', allAccess)
+router.get('/', [authJwt.verifyToken], userBoard)
 
-router.get('/user', [authJwt.verifyToken], userBoard)
+router.get('/all', allAccess)
 
 router.get('/admin', [authJwt.verifyToken, authJwt.isAdmin], adminBoard)
 
