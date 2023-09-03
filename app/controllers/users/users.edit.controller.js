@@ -1,0 +1,31 @@
+import bcrypt from 'bcryptjs'
+import User from '../../repository/users/user.model.js'
+import config from '../../config/shared.js'
+import Utils from './../../utils/index.js'
+
+export default async function edit (req, res) {
+  try {
+    let errors = Utils.validateRequest(req, ({ query }) => {
+      query('name').isString()
+      query('surname').isString()
+      query('avatar').isString()
+      query('description').isString()
+    })
+
+    if (errors) next(errors)
+
+    const userData = {
+      name: req.body.name,
+      surname: req.body.surname,
+      avatar: req.body.avatar,
+      description: req.body.description,
+    }
+
+    
+    await UserEditService({ userId: req.userId, userData })
+
+    res.send({ message: 'User was updated successfully!' })
+  } catch (err) {
+    res.status(500).send({ message: err.message })
+  }
+}
