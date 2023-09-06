@@ -2,6 +2,7 @@ import bcrypt from 'bcryptjs'
 import User from '../../repository/users/user.model.js'
 import config from '../../config/shared.js'
 import Utils from './../../utils/index.js'
+import UserEditService from './../../services/users/users.edit.service.js'
 
 export default async function edit (req, res) {
   try {
@@ -15,6 +16,7 @@ export default async function edit (req, res) {
     if (errors) next(errors)
 
     const userData = {
+      id: req.body.id,
       name: req.body.name,
       surname: req.body.surname,
       avatar: req.body.avatar,
