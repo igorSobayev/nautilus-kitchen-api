@@ -11,14 +11,15 @@ function validateRequest (request, validations) {
     if (!request.file) request.file = undefined
     const validator = new Validator()
     validator(request).required().isObject(req => {
-      let properties = _(request)
-        .pick(allowedFields)
-        .reduce((accum, value, key) => {
-          let propValidator
-          req(key).isObject(validator => { propValidator = validator })
-          accum[key] = propValidator
-          return accum
-        }, {})
+      const properties = allowedFields.reduce((accum, key) => {
+        let propValidator
+        req(key).isObject(validator => {
+          propValidator = validator
+        });
+        accum[key] = propValidator
+        return accum
+      }, {})
+  
       validations(properties)
     })
     let errors = validator.run()
