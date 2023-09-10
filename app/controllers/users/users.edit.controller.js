@@ -1,6 +1,3 @@
-import bcrypt from 'bcryptjs'
-import User from '../../repository/users/user.model.js'
-import config from '../../config/shared.js'
 import Utils from './../../utils/index.js'
 import UserEditService from './../../services/users/users.edit.service.js'
 
@@ -22,7 +19,6 @@ export default async function edit (req, res) {
       avatar: req.body.avatar,
       description: req.body.description,
     }
-
     
     await UserEditService({ userId: req.userId, userData })
 
