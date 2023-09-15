@@ -35,13 +35,24 @@ export const verifyUserAndToken = (req, res, next) => {
       })
     }
     req.userId = decoded.id
+    let isLogged = false
 
-    if (req.userId !== req.params.id) {
-      return res.status(401).send({
-        message: 'Unauthorized!',
-      })
+    // First check if the ID param is the user
+    const userIdParam = req.params.id
+    if (userIdParam && req.userId === userIdParam) {
+      isLogged = true
+    } 
+
+    // If the userid is not in the param, check the body
+    const userIdBody = req.body.userId
+    if (userIdBody && req.userId === userIdBody) {
+      isLogged = true
+    } 
+
+    if (!isLogged) {
+      return res.status(401).send({ message: 'Unauthorized!' })
     }
-
+    
     next()
   })
 }
