@@ -23,7 +23,7 @@ export default async function signin (req, res) {
       const token = jwt.sign({ id: user.id }, config.secret, {
         algorithm: 'HS256',
         allowInsecureKeySizes: true,
-        expiresIn: 86400, // 24 hours
+        expiresIn: 7776000, // 3 months
       })
   
       req.session.token = token
