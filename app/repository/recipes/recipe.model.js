@@ -7,28 +7,32 @@ const Recipe = new mongoose.Schema({
   rating: Number,
   avgTime: Number,
   difficulty: String,
-  author: {
+  user: {
     type: mongoose.Types.ObjectId,
     ref: 'User'
   },
 
   isCombination: Boolean,
   published: Boolean,
+  onProgress: Boolean, // default true
   combinations: [
     {
       _id: mongoose.Types.ObjectId,
       rating: Number,
       description: String,
+      avgTime: Number,
+      difficulty: String,
       notes: String,
       ingredients: [
         {
           ingredient: String,
-          icon: String,
+          quantity: String,
         }
       ]
     }
   ],
 
+  featuredImg: String,
   media: [String],
 
   deleted: Boolean,
