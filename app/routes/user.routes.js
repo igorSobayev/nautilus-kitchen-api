@@ -17,6 +17,10 @@ router.get('/:id', [authJwt.verifyUserAndToken], details)
 router.put('/edit/:id', [authJwt.verifyUserAndToken], edit)
 router.post('/upload-file/:id', [authJwt.verifyUserAndToken], uploader.single('file'), uploadFile)
 
+// User recipes routes
+// router.get('/recipes/published/:id', [authJwt.verifyUserAndToken], userRecipes)
+// router.get('/recipes/wip/:id', [authJwt.verifyUserAndToken], userWipRecipes)
+
 router.get('/all', allAccess)
 
 router.get('/admin', [authJwt.verifyToken, authJwt.isAdmin], adminBoard)

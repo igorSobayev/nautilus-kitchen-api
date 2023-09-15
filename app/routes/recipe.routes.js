@@ -1,13 +1,15 @@
 import authJwt from '../middlewares/authJwt.js'
-import create from '../controllers/recipes/recipes.create.controller.js'
+import createClean from '../controllers/recipes/recipes.createClean.controller.js'
 import list from '../controllers/recipes/recipes.list.controller.js'
 
 import express from 'express'
 const router = express.Router()
 
 router.get('/', [authJwt.verifyToken], list)
-// router.get('/',  list)
-router.post('/create', [authJwt.verifyToken], create)
+// router.get('/:id', [authJwt.verifyUserAndToken], recipeDetails)
+router.post('/create-clean', [authJwt.verifyUserAndToken], createClean)
+// router.put('/edit/:id', [authJwt.verifyUserAndToken], editRecipe)
+
 
 
 export default router
