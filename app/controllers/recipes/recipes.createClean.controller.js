@@ -1,6 +1,6 @@
 import Utils from '../../utils/index.js'
 import createCleanService from '../../services/recipes/recipes.createClean.service.js'
-export default async function create (req, res) {
+export default async function createClean (req, res) {
     let errors = Utils.validateRequest(req, ({ query }) => {
         query('userId').isString()
     })
