@@ -1,4 +1,5 @@
 import RecipeModel from '../../repository/recipes/recipe.model.js'
+import VError from 'verror'
 
 export default async function details ({ recipeId }) {
     

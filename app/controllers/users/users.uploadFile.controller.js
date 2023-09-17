@@ -1,6 +1,7 @@
 import Utils from '../../utils/index.js'
 import mongoose from 'mongoose'
 import Filemanager from './../../components/filemanager.js'
+import VError from 'verror'
 
 export default async function uploadFile (req, res) {
   let error = Utils.validateRequest(req, ({ body }) => {

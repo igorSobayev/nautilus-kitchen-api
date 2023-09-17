@@ -1,4 +1,5 @@
 import detailsService from '../../services/recipes/recipes.details.service.js'
+import VError from 'verror'
 
 export default async function details (req, res) {
     if (!req.params.id) {
