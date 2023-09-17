@@ -5,8 +5,8 @@ const Recipe = new mongoose.Schema({
   description: String,
   notes: String,
   rating: Number,
-  avgTime: Number,
-  difficulty: String,
+  avgTime: String,
+  difficulty: Number,
   user: {
     type: mongoose.Types.ObjectId,
     ref: 'User'
@@ -20,8 +20,8 @@ const Recipe = new mongoose.Schema({
       _id: mongoose.Types.ObjectId,
       rating: Number,
       description: String,
-      avgTime: Number,
-      difficulty: String,
+      avgTime: String,
+      difficulty: Number,
       notes: String,
       ingredients: [
         {
