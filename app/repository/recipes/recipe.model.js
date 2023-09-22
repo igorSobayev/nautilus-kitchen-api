@@ -12,17 +12,30 @@ const Recipe = new mongoose.Schema({
     ref: 'User'
   },
 
-  isCombination: Boolean,
   published: Boolean,
   onProgress: Boolean, // default true
-  combinations: [
+
+  ingredients: [
+    {
+      name: String,
+      quantity: String,
+    }
+  ],
+
+  steps: [
+    {
+      order: Number,
+      description: String,
+    }
+  ],
+
+  versions: [
     {
       _id: mongoose.Types.ObjectId,
       rating: Number,
       description: String,
       avgTime: String,
       difficulty: Number,
-      notes: String,
       ingredients: [
         {
           ingredient: String,
