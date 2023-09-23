@@ -9,6 +9,9 @@ export default async function edit (req, res, next) {
     query('avgTime').isString()
     query('difficulty').isNumber()
     query('userId').isString()
+    query('versions').isArray()
+    query('ingredients').isArray()
+    query('steps').isArray()
     params('id').isString().required()
   })
 
@@ -24,6 +27,9 @@ export default async function edit (req, res, next) {
     avgTime: req.body.avgTime,
     difficulty: req.body.difficulty,
     userId: req.body.userId,
+    versions: req.body.versions,
+    ingredients: req.body.ingredients,
+    steps: req.body.steps
   }
   
   await RecipeEditService({ ...recipeData })
