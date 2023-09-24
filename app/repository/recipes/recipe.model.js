@@ -31,14 +31,14 @@ const Recipe = new mongoose.Schema({
 
   versions: [
     {
-      _id: mongoose.Types.ObjectId,
+      name: String,
       rating: Number,
       description: String,
       avgTime: String,
       difficulty: Number,
       ingredients: [
         {
-          ingredient: String,
+          name: String,
           quantity: String,
         }
       ]
