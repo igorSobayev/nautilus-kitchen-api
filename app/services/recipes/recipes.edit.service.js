@@ -1,7 +1,7 @@
 import RecipeModel from '../../repository/recipes/recipe.model.js'
 import VError from 'verror'
 
-export default async function edit ({ id, title, description, notes, avgTime, difficulty, versions, ingredients, steps, userId }) {
+export default async function edit ({ id, title, description, notes, avgTime, difficulty, versions, ingredients, steps, featuredImg, userId }) {
     if (!id) {
         throw VError('Missing parameter ID')
     }
@@ -20,6 +20,7 @@ export default async function edit ({ id, title, description, notes, avgTime, di
     recipe.versions = versions
     recipe.ingredients = ingredients
     recipe.steps = steps
+    recipe.featuredImg = featuredImg
 
     await recipe.save()
 }
