@@ -12,11 +12,11 @@ export default async function uploadFile (req, res) {
     return next(error)
   }
 
-  const { file, user } = req
+  const { file } = req
   let path = req.body?.path
 
   if (!file) {
-    throw new VError.WError({ name: 'FileNotAttachedError' }, 'File to upload not attached')
+    throw new VError.WError({ name: 'FileNotAttachedError' }, 'File not attached')
   }
 
   // Normalise path url (can never star with "/")
