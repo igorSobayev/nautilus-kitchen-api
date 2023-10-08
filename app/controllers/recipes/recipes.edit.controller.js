@@ -13,6 +13,7 @@ export default async function edit (req, res, next) {
     query('ingredients').isArray()
     query('steps').isArray()
     query('featuredImg').isString()
+    query('media').isArray()
     params('id').isString().required()
   })
 
@@ -31,7 +32,8 @@ export default async function edit (req, res, next) {
     versions: req.body.versions,
     ingredients: req.body.ingredients,
     steps: req.body.steps,
-    featuredImg: req.body.featuredImg
+    featuredImg: req.body.featuredImg,
+    media: req.body.media
   }
   
   await RecipeEditService({ ...recipeData })
