@@ -1,7 +1,7 @@
 import UserDetailsService from './../../services/users/users.details.service.js'
 import VError from 'verror'
 
-export default async function adminBoard (req, res) {
+export default async function details (req, res) {
     
     if (!req.params.id) {
         throw VError('User ID is missing')
