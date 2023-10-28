@@ -7,6 +7,7 @@ import uploadFile from '../controllers/users/users.uploadFile.controller.js'
 import uploadMultipleFiles from '../controllers/users/users.uploadMultipleFiles.controller.js'
 import deleteFiles from '../controllers/users/users.deleteFiles.controller.js'
 import allRecipes from '../controllers/users/users.allRecipes.controller.js'
+import publishedRecipes from '../controllers/users/users.publishedRecipes.controller.js'
 
 import express from 'express'
 import multer from 'multer'
@@ -23,8 +24,7 @@ router.post('/upload-multiple-files/:id', [authJwt.verifyUserAndToken], uploader
 router.post('/delete-files/:id', [authJwt.verifyUserAndToken], deleteFiles)
 
 // User recipes routes
-// router.get('/recipes/published/:id', [authJwt.verifyUserAndToken], userRecipes)
-// router.get('/recipes/wip/:id', [authJwt.verifyUserAndToken], userWipRecipes)
+router.get('/published-recipes/:id', [authJwt.verifyUserAndToken], publishedRecipes)
 router.get('/all-recipes/:id', [authJwt.verifyUserAndToken], allRecipes)
 
 router.get('/all', allAccess)
