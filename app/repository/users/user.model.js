@@ -1,10 +1,16 @@
 import mongoose from 'mongoose'
 
 const User = new mongoose.Schema({
-  username: String,
+  username: {
+    type: String,
+    unique: true,
+  },
   name: String,
   surname: String,
-  email: String,
+  email: {
+    type: String,
+    unique: true,
+  },
   password: String,
   role: String,
   description: String,
@@ -16,7 +22,10 @@ const User = new mongoose.Schema({
 
   conditionsCheck: Boolean,
 
-  deleted: Boolean,
+  deleted: {
+    type: Boolean,
+    default: false,
+  },
   deletedDate: Date,
   deletedBy: {
     type: mongoose.Types.ObjectId,

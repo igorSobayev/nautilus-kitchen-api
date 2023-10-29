@@ -12,8 +12,15 @@ const Recipe = new mongoose.Schema({
     ref: 'User'
   },
 
-  published: Boolean,
-  onProgress: Boolean, // default true
+  published: {
+    type: Boolean,
+    default: false,
+  },
+
+  onProgress: {
+    type: Boolean,
+    default: true,
+  },
 
   ingredients: [
     {
@@ -48,7 +55,10 @@ const Recipe = new mongoose.Schema({
   featuredImg: String,
   media: [String],
 
-  deleted: Boolean,
+  deleted: {
+    type: Boolean,
+    default: false,
+  },
   deletedDate: Date,
   deletedBy:  {
     type: mongoose.Types.ObjectId,
