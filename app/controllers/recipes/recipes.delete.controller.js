@@ -9,8 +9,9 @@ export default async function deleteRecipe (req, res, next) {
   if (errors) next(errors)
 
   const recipeId = req.params.id
+  const userId = req.body.userId
   
-  await RecipeDeletehService({ id: recipeId })
+  await RecipeDeletehService({ id: recipeId, userId })
 
   res.send({ message: 'Recipe deleted!' })
 }
