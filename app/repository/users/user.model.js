@@ -17,10 +17,13 @@ const User = new mongoose.Schema({
   avatar: String,
 
   recipesNumber: Number,
+  avgRating: Number,
   credits: Number,
   lastCreditsDate: Date,
 
   conditionsCheck: Boolean,
+
+  creationDate: Date,
 
   deleted: {
     type: Boolean,

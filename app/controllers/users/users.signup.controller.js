@@ -8,7 +8,8 @@ export default async function signup (req, res) {
       username: req.body.username,
       email: req.body.email,
       password: bcrypt.hashSync(req.body.password, 8),
-      role: config.ROLES.USER
+      role: config.ROLES.USER,
+      creationDate: new Date(),
     })
 
     await user.save()
