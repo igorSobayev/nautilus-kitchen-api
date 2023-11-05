@@ -1,6 +1,7 @@
 import authJwt from '../middlewares/authJwt.js'
 import allAccess from '../controllers/users/users.allAccess.controller.js'
 import details from '../controllers/users/users.details.controller.js'
+import publicDetails from '../controllers/users/users.publicDetails.controller.js'
 import adminBoard from '../controllers/users/users.details.controller.js'
 import edit from '../controllers/users/users.edit.controller.js'
 import uploadFile from '../controllers/users/users.uploadFile.controller.js'
@@ -28,6 +29,9 @@ router.post('/delete-files/:id', [authJwt.verifyUserAndToken], deleteFiles)
 router.get('/published-recipes/:id', [authJwt.verifyUserAndToken], publishedRecipes)
 router.get('/all-recipes/:id', [authJwt.verifyUserAndToken], allRecipes)
 router.get('/wip-recipes/:id', [authJwt.verifyUserAndToken], wipRecipes)
+
+// Public endpoints
+router.get('/public/:username', publicDetails)
 
 router.get('/all', allAccess)
 
