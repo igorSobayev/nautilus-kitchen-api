@@ -20,6 +20,10 @@ const User = new mongoose.Schema({
   avgRating: Number,
   credits: Number,
   lastCreditsDate: Date,
+  followers: {
+    type: Number,
+    default: 0,
+  },
 
   conditionsCheck: Boolean,
 
