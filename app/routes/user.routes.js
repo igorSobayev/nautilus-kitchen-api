@@ -7,6 +7,7 @@ import uploadFile from '../controllers/users/users.uploadFile.controller.js'
 import uploadMultipleFiles from '../controllers/users/users.uploadMultipleFiles.controller.js'
 import deleteFiles from '../controllers/users/users.deleteFiles.controller.js'
 import allRecipes from '../controllers/users/users.allRecipes.controller.js'
+import wipRecipes from '../controllers/users/users.wipRecipes.controller.js'
 import publishedRecipes from '../controllers/users/users.publishedRecipes.controller.js'
 
 import express from 'express'
@@ -26,6 +27,7 @@ router.post('/delete-files/:id', [authJwt.verifyUserAndToken], deleteFiles)
 // User recipes routes
 router.get('/published-recipes/:id', [authJwt.verifyUserAndToken], publishedRecipes)
 router.get('/all-recipes/:id', [authJwt.verifyUserAndToken], allRecipes)
+router.get('/wip-recipes/:id', [authJwt.verifyUserAndToken], wipRecipes)
 
 router.get('/all', allAccess)
 
