@@ -1,11 +1,13 @@
 import UserPublicDetailsService from '../../services/users/users.publicDetails.service.js'
-import VError from 'verror'
+import Utils from '../../utils/index.js'
 
-export default async function publicDetails (req, res) {
+export default async function publicDetails (req, res, next) {
     
-    if (!req.params.username) {
-        throw VError('Username is missing')
-    }
+    let errors = Utils.validateRequest(req, ({ params }) => {
+        params('username').isString().required()
+    })
+
+    if (errors) next(errors)
 
     const username = req.params.username
 
