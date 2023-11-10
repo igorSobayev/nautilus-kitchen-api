@@ -10,6 +10,7 @@ import deleteFiles from '../controllers/users/users.deleteFiles.controller.js'
 import allRecipes from '../controllers/users/users.allRecipes.controller.js'
 import wipRecipes from '../controllers/users/users.wipRecipes.controller.js'
 import publishedRecipes from '../controllers/users/users.publishedRecipes.controller.js'
+import publicRecipes from '../controllers/users/users.publicRecipes.controller.js'
 
 import express from 'express'
 import multer from 'multer'
@@ -32,6 +33,7 @@ router.get('/wip-recipes/:id', [authJwt.verifyUserAndToken], wipRecipes)
 
 // Public endpoints
 router.get('/public/:username', publicDetails)
+router.get('/public-recipes/:id', publicRecipes)
 
 router.get('/all', allAccess)
 
