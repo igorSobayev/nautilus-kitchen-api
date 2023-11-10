@@ -33,7 +33,7 @@ router.get('/wip-recipes/:id', [authJwt.verifyUserAndToken], wipRecipes)
 
 // Public endpoints
 router.get('/public/:username', publicDetails)
-router.get('/public-recipes/:id', publicRecipes)
+router.get('/public-recipes/:username', publicRecipes)
 
 router.get('/all', allAccess)
 
