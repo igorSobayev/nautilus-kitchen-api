@@ -2,6 +2,7 @@ import config from '../../config/auth.config.js'
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 import User from '../../repository/users/user.model.js'
+import Mailer from '../../components/mailer/index.js'
 
 export default async function signin (req, res) {
     try {
@@ -28,6 +29,12 @@ export default async function signin (req, res) {
   
       req.session.token = token
   
+      // try {
+      //   await Mailer.sendEmail('TEST')
+      // } catch (error) {
+      //   console.log(error)
+      // }
+
       res.status(200).send({
         id: user._id,
         username: user.username,
