@@ -2,7 +2,6 @@ import config from '../../config/auth.config.js'
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 import User from '../../repository/users/user.model.js'
-import Mailer from '../../components/mailer/index.js'
 
 export default async function signin (req, res) {
     try {
