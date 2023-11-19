@@ -1,5 +1,6 @@
 import nodemailer from 'nodemailer'
 import testMail from './testMail.js'
+import resetPasswordCodeMail from './resetpasswordCodeMail.js'
 
 export const transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
@@ -15,10 +16,12 @@ transporter.verify().then(() => {
     console.log('Mailer is ready!')
 })
 
-async function sendEmail (templateName) {
+async function sendEmail ({ templateName, info }) {
   switch(templateName) {
     case 'TEST':
       return testMail.run()
+    case 'RESET_PASSWORD':
+      return resetPasswordCodeMail.run({ to: info.to, code: info.code })
     default:
       break
   }
