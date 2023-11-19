@@ -36,5 +36,5 @@ export default async function changePassword ({ actualPassword, newPassword, use
 
     user.password = hashedNewPassword
 
-    user.save()
+    await user.save()
 }
