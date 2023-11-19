@@ -29,6 +29,8 @@ const User = new mongoose.Schema({
 
   creationDate: Date,
 
+  forgotPasswordCode: String,
+
   deleted: {
     type: Boolean,
     default: false,
