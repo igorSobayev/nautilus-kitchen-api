@@ -24,16 +24,10 @@ export default async function signin (req, res) {
       const token = jwt.sign({ id: user.id }, config.secret, {
         algorithm: 'HS256',
         allowInsecureKeySizes: true,
-        expiresIn: 7776000, // 3 months
+        expiresIn: 31536000, // 1 year
       })
   
       req.session.token = token
-  
-      // try {
-      //   await Mailer.sendEmail('TEST')
-      // } catch (error) {
-      //   console.log(error)
-      // }
 
       res.status(200).send({
         id: user._id,
