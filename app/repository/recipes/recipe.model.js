@@ -48,7 +48,13 @@ const Recipe = new mongoose.Schema({
           name: String,
           quantity: String,
         }
-      ]
+      ],
+      steps: [
+        {
+          order: Number,
+          description: String,
+        }
+      ],
     }
   ],
 
