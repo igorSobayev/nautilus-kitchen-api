@@ -11,7 +11,9 @@ export default async function publicDetails (req, res, next) {
 
     const username = req.params.username
 
-    const user = await UserPublicDetailsService({ username })
+    const userId = req.body.userId
+
+    const user = await UserPublicDetailsService({ username, userId })
     res.status(200).send(user)
 }
   
