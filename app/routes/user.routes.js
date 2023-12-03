@@ -12,6 +12,8 @@ import wipRecipes from '../controllers/users/users.wipRecipes.controller.js'
 import publishedRecipes from '../controllers/users/users.publishedRecipes.controller.js'
 import publicRecipes from '../controllers/users/users.publicRecipes.controller.js'
 
+import followUser from '../controllers/followers/followers.followUser.controller.js'
+
 import express from 'express'
 import multer from 'multer'
 
@@ -30,6 +32,9 @@ router.post('/delete-files/:id', [authJwt.verifyUserAndToken], deleteFiles)
 router.get('/published-recipes/:id', [authJwt.verifyUserAndToken], publishedRecipes)
 router.get('/all-recipes/:id', [authJwt.verifyUserAndToken], allRecipes)
 router.get('/wip-recipes/:id', [authJwt.verifyUserAndToken], wipRecipes)
+
+// User followers routes
+router.put('/follow/:username', [authJwt.verifyUserAndToken],  followUser)
 
 // Public endpoints
 router.get('/public/:username', publicDetails)
