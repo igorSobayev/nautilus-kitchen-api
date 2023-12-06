@@ -34,14 +34,14 @@ export default async function followUser ({ userToFollowUsername, userId}) {
         follower.user = userId
         follower.userFollowed = userToFollow._id
         follower.creationDate = new Date()
-
-        // Update the followed user to know the total followers
-        userToFollow.followers = userToFollow.followers + 1
-        await userToFollow.save()
     }
 
     follower.following = true
     follower.followDate = new Date()
 
     await follower.save()
+
+    // Update the followed user to know the total followers
+    userToFollow.followers = userToFollow.followers + 1
+    await userToFollow.save()
 }
