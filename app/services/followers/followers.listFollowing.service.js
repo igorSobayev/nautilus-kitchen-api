@@ -15,7 +15,7 @@ export default async function listFollowing ({ username }) {
         throw VError(`User with username ${username} not found`)
     }
 
-    const followingRaw = await FollowerModel.find({ user: user._id }).populate('userFollowed', config.EXCLUDED_USER_FIELDS)
+    const followingRaw = await FollowerModel.find({ user: user._id, following: true }).populate('userFollowed', config.EXCLUDED_USER_FIELDS)
 
     const following = followingRaw.map(follower => follower.userFollowed)
 
