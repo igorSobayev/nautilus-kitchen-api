@@ -15,6 +15,7 @@ import publicRecipes from '../controllers/users/users.publicRecipes.controller.j
 import followUser from '../controllers/followers/followers.followUser.controller.js'
 import unfollowUser from '../controllers/followers/followers.unfollowUser.controller.js'
 import listFollowing from '../controllers/followers/followers.listFollowing.controller.js'
+import listFollowers from '../controllers/followers/followers.listFollowers.controller.js'
 
 import express from 'express'
 import multer from 'multer'
@@ -39,6 +40,7 @@ router.get('/wip-recipes/:id', [authJwt.verifyUserAndToken], wipRecipes)
 router.put('/follow/:username', [authJwt.verifyUserAndToken],  followUser)
 router.put('/unfollow/:username', [authJwt.verifyUserAndToken],  unfollowUser)
 router.get('/following/:username', listFollowing)
+router.get('/followers/:username', listFollowers)
 
 // Public endpoints
 router.put('/public/:username', publicDetails)
