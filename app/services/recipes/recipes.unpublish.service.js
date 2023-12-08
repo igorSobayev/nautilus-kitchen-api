@@ -1,6 +1,8 @@
 import RecipeModel from '../../repository/recipes/recipe.model.js'
 import VError from 'verror'
 
+import UpdateRecipesNumberUserService from '../users/users.updateRecipesNumber.service.js'
+
 export default async function unpublish ({ id }) {
     if (!id) {
         throw VError('Missing parameter ID')
@@ -11,4 +13,6 @@ export default async function unpublish ({ id }) {
     recipe.published = false
 
     await recipe.save()
+
+    await UpdateRecipesNumberUserService({ userId: recipe.user })
 }
