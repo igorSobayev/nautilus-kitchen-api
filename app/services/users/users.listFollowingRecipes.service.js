@@ -5,18 +5,18 @@ import ListFollowingService from '../followers/followers.listFollowing.service.j
 import UserModel from '../../repository/users/user.model.js'
 import RecipeModel from '../../repository/recipes/recipe.model.js'
 
-export default async function listFollowingRecipes ({ username }) {
-    if (!username) {
-        throw VError('Missing parameter username')
+export default async function listFollowingRecipes ({ userId }) {
+    if (!userId) {
+        throw VError('Missing parameter userId')
     }
 
-    const user = await UserModel.findOne({ username })
+    const user = await UserModel.findById(userId)
 
     if (!user) {
-        throw VError(`User with username ${username} not found`)
+        throw VError(`User with ID ${userId} not found`)
     }
 
-    const following = await ListFollowingService({ username })
+    const following = await ListFollowingService({ username: user.username })
 
     if (!following.length) {
         return []

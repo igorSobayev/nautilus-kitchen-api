@@ -38,7 +38,7 @@ router.get('/published-recipes/:id', [authJwt.verifyUserAndToken], publishedReci
 router.get('/all-recipes/:id', [authJwt.verifyUserAndToken], allRecipes)
 router.get('/wip-recipes/:id', [authJwt.verifyUserAndToken], wipRecipes)
 
-router.put('/:username/list-following-recipes', [authJwt.verifyUserAndToken], listFollowingRecipes) // Is PUT temporally
+router.get('/:id/list-following-recipes', [authJwt.verifyUserAndToken], listFollowingRecipes)
 
 // User followers routes
 router.put('/follow/:username', [authJwt.verifyUserAndToken],  followUser)

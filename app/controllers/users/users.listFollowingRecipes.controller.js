@@ -5,14 +5,14 @@ export default async function listFollowingRecipes (req, res) {
   try {
 
     let errors = Utils.validateRequest(req, ({ params }) => {
-        params('username').isString().required()
+        params('id').isString().required()
     })
 
     if (errors) next(errors)
 
-    const { username } = req.params
+    const { id } = req.params
 
-    const followingRecipes = await ListFollowingRecipesService({ username })
+    const followingRecipes = await ListFollowingRecipesService({ userId: id })
 
     res.send(followingRecipes)
   } catch (err) {
