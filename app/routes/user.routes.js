@@ -17,6 +17,8 @@ import unfollowUser from '../controllers/followers/followers.unfollowUser.contro
 import listFollowing from '../controllers/followers/followers.listFollowing.controller.js'
 import listFollowers from '../controllers/followers/followers.listFollowers.controller.js'
 
+import listFollowingRecipes from '../controllers/users/users.listFollowingRecipes.controller.js'
+
 import express from 'express'
 import multer from 'multer'
 
@@ -35,6 +37,8 @@ router.post('/delete-files/:id', [authJwt.verifyUserAndToken], deleteFiles)
 router.get('/published-recipes/:id', [authJwt.verifyUserAndToken], publishedRecipes)
 router.get('/all-recipes/:id', [authJwt.verifyUserAndToken], allRecipes)
 router.get('/wip-recipes/:id', [authJwt.verifyUserAndToken], wipRecipes)
+
+router.put('/:username/list-following-recipes', [authJwt.verifyUserAndToken], listFollowingRecipes) // Is PUT temporally
 
 // User followers routes
 router.put('/follow/:username', [authJwt.verifyUserAndToken],  followUser)
