@@ -5,6 +5,8 @@ import ListFollowingService from '../followers/followers.listFollowing.service.j
 import UserModel from '../../repository/users/user.model.js'
 import RecipeModel from '../../repository/recipes/recipe.model.js'
 
+import config from '../../config/shared.js'
+
 export default async function listFollowingRecipes ({ userId }) {
     if (!userId) {
         throw VError('Missing parameter userId')
@@ -24,7 +26,7 @@ export default async function listFollowingRecipes ({ userId }) {
 
     const followingIds = following.map(follower => follower._id)
 
-    const recipes = await RecipeModel.find({ user: { $in: followingIds }, published: true, deleted: false })
+    const recipes = await RecipeModel.find({ user: { $in: followingIds }, published: true, deleted: false }).populate('user', config.EXCLUDED_USER_FIELDS)
 
     return recipes
 }
