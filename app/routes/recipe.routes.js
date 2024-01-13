@@ -18,6 +18,7 @@ router.put('/publish/:id', [authJwt.verifyUserAndToken], publishRecipe)
 router.put('/unpublish/:id', [authJwt.verifyUserAndToken], unpublishRecipe)
 router.put('/delete/:id', [authJwt.verifyUserAndToken], deleteRecipe)
 
-
+// Public routes
+router.get('/public/:id', publicDetails)
 
 export default router
