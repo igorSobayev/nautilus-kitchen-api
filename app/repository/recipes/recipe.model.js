@@ -12,6 +12,8 @@ const Recipe = new mongoose.Schema({
     ref: 'User'
   },
 
+  slug: String,
+
   published: {
     type: Boolean,
     default: false,
