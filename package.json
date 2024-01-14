@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "mocha \"app/**/*.spec.js\" \"app/**/*.integration.js\"",
+    "test-single": "mocha",
     "dev": "nodemon ./server.js localhost 8080"
   },
   "keywords": [
