@@ -12,7 +12,10 @@ const Recipe = new mongoose.Schema({
     ref: 'User'
   },
 
-  slug: String,
+  slug: {
+    type: String,
+    unique: true
+  },
 
   published: {
     type: Boolean,
