@@ -5,7 +5,6 @@ export default async function edit (req, res, next) {
   let errors = Utils.validateRequest(req, ({ query, params }) => {
     query('title').isString()
     query('description').isString()
-    query('notes').isString()
     query('avgTime').isString()
     query('difficulty').isNumber()
     query('userId').isString()
@@ -25,7 +24,6 @@ export default async function edit (req, res, next) {
     id: recipeId,
     title: req.body.title,
     description: req.body.description,
-    notes: req.body.notes,
     avgTime: req.body.avgTime,
     difficulty: req.body.difficulty,
     userId: req.body.userId,

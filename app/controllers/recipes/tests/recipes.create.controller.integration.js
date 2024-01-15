@@ -11,7 +11,6 @@ describe('create', () => {
       body: {
         title: 'Test Recipe',
         description: 'Test Description',
-        notes: 'Test Notes',
         isCombination: true,
         combinations: ['Test Combination']
       }

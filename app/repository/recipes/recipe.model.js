@@ -3,7 +3,6 @@ import mongoose from 'mongoose'
 const Recipe = new mongoose.Schema({
   title: String,
   description: String,
-  notes: String,
   rating: Number,
   avgTime: String,
   difficulty: Number,
