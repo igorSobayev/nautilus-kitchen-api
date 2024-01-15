@@ -8,7 +8,7 @@ export default function generateSlug ({ recipeTitle }) {
     const dateInMillisecs = Date.now();
     const dateInSecs = Math.round(dateInMillisecs / 1000);
 
-    const slug = slugify(`${dateInSecs}-${recipeTitle}`)
+    const slug = slugify(`${recipeTitle}-${dateInSecs}`)
 
    return slug
 }
