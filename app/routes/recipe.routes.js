@@ -6,6 +6,7 @@ import editRecipe from '../controllers/recipes/recipes.edit.controller.js'
 import publishRecipe from '../controllers/recipes/recipes.publish.controller.js'
 import unpublishRecipe from '../controllers/recipes/recipes.unpublish.controller.js'
 import deleteRecipe from '../controllers/recipes/recipes.delete.controller.js'
+import publicDetails from '../controllers/recipes/recipes.publicDetails.controller.js'
 
 import express from 'express'
 const router = express.Router()
