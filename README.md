@@ -1,5 +1,8 @@
-# Node.js Express Login and Registration template
-Template to start your project with the login system working
+
+## Nautilus Kitchen API
+This is the API repository for the project Nautilus Kitchen (Unfinished).
+The front repository: https://github.com/igorSobayev/nautilus-kitchen-front
+
 ## Project setup
 ```
 npm install
